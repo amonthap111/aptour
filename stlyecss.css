@@ -1,0 +1,534 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header {
+    width: 100%;
+    height: auto;
+    background-color: #000000;
+}
+.header img {
+    width: 100%;
+    height: auto;
+}
+.contener {
+    width: 100%;
+    height: auto;
+    max-width: 1980px;
+}
+.nav-bar {
+    display: flex;
+}
+
+/* ตำแหน่งและการจัดเรียงรายการของเมนู */
+.nagavition ul {
+    display: flex; /* จัดเรียงรายการแนวนอน */
+    position: absolute; /* ตำแหน่งเมนู */
+    top: 0; /* ชิดด้านบน */
+    left: 0; /* ชิดด้านซ้าย */
+    margin: 20px 50px; /* ระยะห่างจากขอบ */
+    padding: 0; /* ลบ padding ด้านใน */
+}
+
+/* สไตล์รายการในเมนู */
+.nagavition ul li {
+    margin-left: 30px; /* ระยะห่างระหว่างรายการ */
+    list-style-type: none; /* ลบจุดหน้า <li> */
+}
+
+/* สไตล์ลิงก์ในรายการ */
+.nagavition ul li a {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-transform: none; /* ไม่เปลี่ยนตัวพิมพ์ใหญ่ */
+    text-decoration: none; /* ลบเส้นใต้ */
+    color: aliceblue; /* สีตัวอักษร */
+    font-weight: 700; /* ความหนาตัวอักษร */
+    padding: 10px 15px; /* เพิ่มพื้นที่ให้คลิกได้ */
+    border-radius: 5px; /* ทำมุมโค้ง */
+    transition: all 0.3s ease; /* เพิ่มการเปลี่ยนแปลงนุ่มนวล */
+}
+
+/* เอฟเฟกต์เมื่อชี้เมาส์ */
+.nagavition ul li a:hover {
+    background-color: rgba(243, 84, 137, 0.8); /* พื้นหลังเปลี่ยนสี */
+    color: white; /* เปลี่ยนสีตัวอักษร */
+}
+
+/* เอฟเฟกต์เมื่อคลิก */
+.nagavition ul li a:active {
+    background-color: rgba(255, 70, 130, 1); /* สีพื้นหลังเข้มขึ้น */
+}
+
+   
+
+.Btn-nagavition {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 20px 50px;
+}
+
+.Btn-nagavition button {
+    color: rgb(255, 255, 255); /* สีตัวอักษร */
+    background-color: rgb(255, 112, 160); /* สีพื้นหลัง */
+    border: none; /* ไม่มีเส้นขอบ */
+    font-weight: 700; /* ตัวหนา */
+    padding: 10px 20px; /* เพิ่มขนาดพื้นที่ภายใน */
+    border-radius: 5px; /* มุมโค้งมน */
+    cursor: pointer; /* เปลี่ยนเป็นมือเมื่อชี้ */
+    transition: all 0.3s ease; /* เพิ่มการเปลี่ยนแปลงอย่างนุ่มนวล */
+    margin-right: 30px;
+}
+
+/* เมื่อชี้เมาส์ */
+.Btn-nagavition button:hover {
+    background-color: rgb(255, 86, 140); /* พื้นหลังเข้มขึ้น */
+    transform: scale(1.05); /* ขยายเล็กน้อย */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+}
+
+/* เมื่อคลิก */
+.Btn-nagavition button:active {
+    background-color: rgb(255, 70, 130); /* พื้นหลังเข้มขึ้นอีก */
+    transform: scale(0.98); /* หดเล็กน้อย */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* เงาลดลง */
+}
+
+/* กรณีปุ่มไม่มีการใช้งาน (disabled) */
+.Btn-nagavition button:disabled {
+    background-color: rgba(200, 200, 200, 0.5); /* สีพื้นหลังจางลง */
+    color: rgba(255, 255, 255, 0.7); /* สีข้อความจาง */
+    cursor: not-allowed; /* เปลี่ยนเป็นตัวชี้ไม่อนุญาต */
+    box-shadow: none; /* ไม่มีเงา */
+}
+.moving-text {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    padding: 10px 20px;
+    border-radius: 10px;
+    position: absolute;
+    top: 150px;
+    left: 5%;
+}
+
+.text-center-header p {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ffffff; /* สีฟอนต์ */
+    text-transform: uppercase;
+    animation: moveText 3s infinite;
+    text-shadow: 2px 2px 5px #000000; /* เพิ่มเงาดำ */
+}
+
+.description p {
+    font-size: 20px;
+    color: #000000;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* การเคลื่อนไหวของข้อความ */
+@keyframes moveText {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+}
+/* Style for the main container */
+.contener-fs-one {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 30px 0;
+    background-color: #202020;
+    border-radius: 0px 0 50px 50px;
+}
+
+/* Style for the heading */
+.contener-fs-one p {
+    font-size: 75px;
+    font-weight: 900;
+    color: rgb(255, 70, 130);
+    margin-bottom: 20px;
+}
+
+/* Container for the cars */
+.contener-car {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Styling for each car show section */
+.car-show {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.car-show:hover {
+    transform: scale(1.05);
+}
+
+/* Styling for the car image */
+.car-show img {
+    max-width: 100%;
+    border-radius: 8px;
+    height: auto;
+}
+
+/* Styling for the car ID or name */
+.car-show h1 {
+    font-size: 1.6rem;
+    margin: 15px 0;
+    color: #444;
+}
+
+/* Styling for the description paragraph */
+.car-show p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Styling for the button */
+.car-show button {
+    background-color: rgb(255, 70, 130);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.car-show button:hover {
+    background-color: rgb(70, 17, 33);
+}
+.car-show ul {
+    list-style: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.car-show ul li{
+    margin-bottom: 10px;
+    
+}
+.container-fs-two {
+    padding: 20px;
+    border-radius: 50px 50px 0px 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    background-color: #000000;
+}
+
+.container-fs-two h2 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: rgb(255, 70, 130);
+    text-transform: uppercase;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.driver-image img {
+    width: 500px;
+    height: auto;
+    border-radius: 50px;
+}
+
+.driver-info {
+    max-width: 500px;
+    margin-left: 20px;
+}
+
+.driver-info p {
+    font-size: 18px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.driver-info ul {
+    list-style-type: none;
+    padding-left: 0;
+    padding: 20px;
+    border-radius: 30px;
+}
+
+.driver-info li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: #ffffff;
+}
+
+.driver-info li strong {
+    color: rgb(255, 70, 130);
+}
+.driver-image {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    overflow: hidden; /* ซ่อนส่วนที่เกินกรอบ */
+}
+
+.driver-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid #ddd; /* กรอบสีเทาอ่อน */
+    transition: all 0.3s ease; /* เพิ่มการเปลี่ยนแปลงที่นุ่มนวล */
+}
+
+.container-fs-img {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 50px;
+   background-color: #000000;
+    
+}
+.container-fs-img p{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 50px;
+    font-weight: 800;
+    color:rgb(255, 70, 130);
+}
+.image-gallery {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-item {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* เพิ่มเอฟเฟกต์ให้การซูม */
+}
+
+/* เอฟเฟกต์การซูม เมื่อผู้ใช้ hover ที่รูป */
+.image-item img:hover {
+    transform: scale(1.1); /* ขยายภาพเล็กน้อยเมื่อ hover */
+}
+
+/* เพิ่มการซูมเต็มที่เมื่อคลิกที่รูป */
+.zoomable:active {
+    transform: scale(2); /* ขยายภาพ */
+    z-index: 100;
+}
+.container-info {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 20px 30px;
+}
+
+.container-info h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(255, 70, 130);
+    margin-bottom: 20px;
+}
+
+.info-boxes {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.info-box {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-basis: 30%;
+    text-align: center;
+}
+
+.info-box h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(255, 70, 130);
+    margin-bottom: 10px;
+}
+
+.info-box p {
+    font-size: 16px;
+    color: #34495e;
+    line-height: 1.6;
+}
+/* ส่วน Footer */
+.footer {
+    background-color: rgb(255, 70, 130);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo img {
+    max-width: 150px;
+    height: auto;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+    font-size: 14px;
+    text-align: left;
+}
+
+.footer-rights {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Service Container */
+.service-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Heading */
+h1 {
+    font-size: 36px;
+    color: #d662e6;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 28px;
+    color: #ff64ea;
+    margin-bottom: 20px;
+}
+
+/* Service Cards Section */
+.service-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+/* Service Card */
+.service-card {
+    flex: 1;
+    min-width: 250px;
+    background-color: #fae0f6;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+/* Card Title */
+.service-card h2 {
+    font-size: 24px;
+    color: #bb2c97;
+    margin-bottom: 15px;
+}
+
+/* Card Description */
+.service-card p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+/* Style for Strong Text */
+.service-card strong {
+    font-weight: bold;
+}
+
+/* Service Details Section */
+.service-details {
+    margin-top: 40px;
+    text-align: left;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.service-details li {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.service-details a {
+    text-decoration: none;
+    color: #df31d6;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.service-details a:hover {
+    color: #570b35;
+}
+
+
